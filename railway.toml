@@ -1,0 +1,32 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+[deploy.envs]
+NODE_ENV = "production"
+PORT = "3000"
+HOSTNAME = "0.0.0.0"
+
+# Railway will automatically inject these from your environment variables
+# OPENAI_API_KEY
+# ANTHROPIC_API_KEY
+# GROQ_API_KEY
+# GOOGLE_GENERATIVE_AI_API_KEY
+# DATABASE_URL
+# REDIS_URL
+# BLOB_READ_WRITE_TOKEN
+# UPSTASH_REDIS_REST_URL
+# UPSTASH_REDIS_REST_TOKEN
+# QSTASH_URL
+# QSTASH_TOKEN
+# QSTASH_CURRENT_SIGNING_KEY
+# QSTASH_NEXT_SIGNING_KEY
+# RESEND_API_KEY
+# BETTER_AUTH_SECRET
+# And all other required environment variables
